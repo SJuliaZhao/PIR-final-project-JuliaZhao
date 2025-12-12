@@ -2,21 +2,49 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Interactive Art Interpretation</title>
+    <title>Postwar Reflection – Interactive Art Interpretation</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
+
     <style>
+        /* ---- GENERAL PAGE STYLE ---- */
         body {
             margin: 0;
-            font-family: system-ui, -apple-system, sans-serif;
-            background: #f8f9fa;
-            line-height: 1.6;
+            padding: 0;
+            font-family: "Georgia", serif;
+            background: #d8d8d8; /* soft grey */
+            background: linear-gradient(180deg, #d9d9d9, #bfbfbf, #c9c9c9);
+            color: #2d2d2d;
+            line-height: 1.7;
         }
 
+        /* Faint grain effect for postwar atmosphere */
+        body::before {
+            content: "";
+            position: fixed;
+            top: 0; left: 0;
+            width: 100%; height: 100%;
+            pointer-events: none;
+            background-image: url("https://www.transparenttextures.com/patterns/asfalt-dark.png");
+            opacity: 0.15;
+            z-index: 0;
+        }
+
+        /* ---- CONTAINER FOR EVERYTHING ---- */
+        .main-container {
+            position: relative;
+            z-index: 1;
+            max-width: 900px;
+            margin: 40px auto;
+            padding: 10px;
+        }
+
+        /* ---- IMAGE ---- */
         .image-container {
             position: relative;
             width: 100%;
-            max-width: 900px;
-            margin: auto;
+            border: 1px solid #444;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.4);
+            filter: grayscale(20%); /* subtle sorrow */
         }
 
         img {
@@ -24,7 +52,7 @@
             display: block;
         }
 
-        /* Clickable invisible halves */
+        /* ---- CLICKABLE HALVES ---- */
         .left-half, .right-half {
             position: absolute;
             top: 0;
@@ -36,51 +64,71 @@
         .left-half { left: 0; }
         .right-half { right: 0; }
 
-        /* Hidden text sections */
+        /* ---- TEXT BOXES ---- */
         .text-box {
-            max-width: 900px;
-            margin: 2rem auto;
-            padding: 1.2rem;
-            background: white;
-            border-left: 4px solid #4f46e5;
+            background: rgba(255, 255, 255, 0.6);
+            border-left: 6px solid #4a4a4a;
+            margin-top: 25px;
+            padding: 20px 25px;
+            font-size: 1.05rem;
+            backdrop-filter: blur(3px);
+            box-shadow: 0 2px 6px rgba(0,0,0,0.25);
             display: none;
+            animation: fadeIn 0.7s ease forwards;
         }
+
+        .intro-box {
+            display: block; /* intro paragraph always visible */
+        }
+
+        /* ---- TEXT EFFECT ---- */
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(10px); }
+            to   { opacity: 1; transform: translateY(0); }
+        }
+
     </style>
 </head>
-<body>
 
-    <!-- Image -->
+<body>
+<div class="main-container">
+
+    <!-- IMAGE SECTION -->
     <div class="image-container">
         <img src="artwork.jpg" alt="Artwork">
 
-        <!-- Invisible clickable halves -->
+        <!-- invisible clickable halves -->
         <div class="left-half" onclick="showLeft()"></div>
         <div class="right-half" onclick="showRight()"></div>
     </div>
 
-    <!-- Opening paragraph -->
-    <div class="text-box" style="display:block;">
+    <!-- INTRO PARAGRAPH (always visible) -->
+    <div class="text-box intro-box">
         <p>
-            This is the introductory paragraph that appears beneath the image. 
-            Replace this text with your own explanation or description.
+            A quiet stillness settles over the world in the years after the war — 
+            a muted landscape shaped by reflection, loss, and the fragile hope of rebuilding.
+            This project reads the artwork through this somber atmosphere, letting each 
+            half of the image reveal a different part of the story.
         </p>
     </div>
 
-    <!-- Paragraph shown by clicking LEFT side -->
+    <!-- LEFT CLICK TEXT -->
     <div id="leftText" class="text-box">
         <p>
-            This is the text that appears when you click on the <strong>left half</strong> of the image.
-            Replace this with your paragraph that corresponds to your analysis.
+            This is where your paragraph for the <strong>left half</strong> of the image will go.
+            Replace this text with your own analysis about the artwork.
         </p>
     </div>
 
-    <!-- Paragraph shown by clicking RIGHT side -->
+    <!-- RIGHT CLICK TEXT -->
     <div id="rightText" class="text-box">
         <p>
-            This is the text that appears when you click on the <strong>right half</strong> of the image.
-            Replace this with your paragraph that corresponds to your second analysis section.
+            This is where your paragraph for the <strong>right half</strong> of the image will go.
+            Replace this text with your second analysis paragraph.
         </p>
     </div>
+
+</div>
 
 <script>
     function showLeft() {
@@ -96,5 +144,6 @@
 
 </body>
 </html>
+
 
 
