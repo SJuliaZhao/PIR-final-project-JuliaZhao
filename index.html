@@ -69,5 +69,32 @@
     <!-- Paragraph shown by clicking LEFT side -->
     <div id="leftText" class="text-box">
         <p>
-            This is the text that appears when you click on the <strong>left half</stro
+            This is the text that appears when you click on the <strong>left half</strong> of the image.
+            Replace this with your paragraph that corresponds to your analysis.
+        </p>
+    </div>
+
+    <!-- Paragraph shown by clicking RIGHT side -->
+    <div id="rightText" class="text-box">
+        <p>
+            This is the text that appears when you click on the <strong>right half</strong> of the image.
+            Replace this with your paragraph that corresponds to your second analysis section.
+        </p>
+    </div>
+
+<script>
+    function showLeft() {
+        document.getElementById("leftText").style.display = "block";
+        document.getElementById("rightText").style.display = "none";
+    }
+
+    function showRight() {
+        document.getElementById("rightText").style.display = "block";
+        document.getElementById("leftText").style.display = "none";
+    }
+</script>
+
+</body>
+</html>
+
 
