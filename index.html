@@ -2,200 +2,72 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>PIR Section 9 – Final Project Instructions</title>
+    <title>Interactive Art Interpretation</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <style>
         body {
-            font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
             margin: 0;
-            padding: 0;
+            font-family: system-ui, -apple-system, sans-serif;
+            background: #f8f9fa;
             line-height: 1.6;
-            background-color: #f8f8fb;
-            color: #222;
         }
 
-        header {
-            background: #1f2933;
-            color: #f9fafb;
-            padding: 1.8rem 1.5rem;
-            text-align: center;
-        }
-
-        header h1 {
-            margin: 0;
-            font-size: 1.6rem;
-            letter-spacing: 0.03em;
-        }
-
-        main {
+        .image-container {
+            position: relative;
+            width: 100%;
             max-width: 900px;
-            margin: 1.5rem auto 3rem;
-            padding: 0 1rem;
+            margin: auto;
         }
 
-        .notice {
-            border-left: 4px solid #b91c1c;
-            background: #fef2f2;
-            padding: 1rem 1rem 1rem 1.2rem;
-            margin-bottom: 1.5rem;
+        img {
+            width: 100%;
+            display: block;
         }
 
-        .notice strong {
-            text-transform: uppercase;
+        /* Clickable invisible halves */
+        .left-half, .right-half {
+            position: absolute;
+            top: 0;
+            width: 50%;
+            height: 100%;
+            cursor: pointer;
         }
 
-        h2 {
-            margin-top: 1.8rem;
-            font-size: 1.4rem;
-            border-bottom: 2px solid #e2e8f0;
-            padding-bottom: 0.3rem;
-        }
+        .left-half { left: 0; }
+        .right-half { right: 0; }
 
-        h3 {
-            margin-top: 1.2rem;
-            font-size: 1.1rem;
-        }
-
-        ul {
-            padding-left: 1.3rem;
-        }
-
-        li {
-            margin: 0.3rem 0;
-        }
-
-        .meta {
-            font-size: 0.95rem;
-            color: #4b5563;
-            margin-bottom: 0.8rem;
-        }
-
-        .asterisk-note {
-            font-size: 0.95rem;
-            background: #eef2ff;
+        /* Hidden text sections */
+        .text-box {
+            max-width: 900px;
+            margin: 2rem auto;
+            padding: 1.2rem;
+            background: white;
             border-left: 4px solid #4f46e5;
-            padding: 0.8rem 1rem;
-            margin: 1rem 0;
-        }
-
-        .footer-note {
-            margin-top: 2rem;
-            font-size: 0.9rem;
-            color: #4b5563;
-            border-top: 1px solid #e5e7eb;
-            padding-top: 1rem;
+            display: none;
         }
     </style>
 </head>
 <body>
-<header>
-    <h1>PIR Section 9 – Final Project, Fall Quarter 2025</h1>
-</header>
 
-<main>
-    <section class="notice">
-        <strong>It is important that you read all the information in this document.</strong>
-    </section>
+    <!-- Image -->
+    <div class="image-container">
+        <img src="artwork.jpg" alt="Artwork">
 
-    <section>
-        <p class="meta">
-            <strong>Due Date:</strong> Friday 12 December, 2025, 5:00 PM – on Canvas site
-        </p>
+        <!-- Invisible clickable halves -->
+        <div class="left-half" onclick="showLeft()"></div>
+        <div class="right-half" onclick="showRight()"></div>
+    </div>
 
-        <h2>Citations and Sources</h2>
-        <ul>
-            <li>Cite sources this way: <em>(author, year: page)</em> and provide a list of references with complete bibliographic entries in Chicago format, including the artwork.</li>
-            <li>Citations must be to the <strong>class editions</strong>.</li>
-        </ul>
-
-        <div class="asterisk-note">
-            <ul>
-                <li><strong>Do not</strong> use direct quotations from the texts.</li>
-                <li><strong>Do not</strong> use analytic resources outside of the class texts and your chosen artwork (you can use outside material, images, video, links, historical information, etc.)</li>
-                <li>No use of secondary literature, AI.</li>
-            </ul>
-        </div>
-    </section>
-
-    <section>
-        <h2>Overview of the Final Project</h2>
-
+    <!-- Opening paragraph -->
+    <div class="text-box" style="display:block;">
         <p>
-            Your final project will be to create a webpage on the class Canvas site (“Pages” in the left side menu)
-            through which you will explore the relationship between <strong>Wollstonecraft, Walker or Burke</strong> and one other
-            text from this quarter (<strong>Hobbes, Locke, Rousseau</strong>, or, if using Wollstonecraft or Walker, <strong>Burke</strong>).
+            This is the introductory paragraph that appears beneath the image. 
+            Replace this text with your own explanation or description.
         </p>
+    </div>
 
+    <!-- Paragraph shown by clicking LEFT side -->
+    <div id="leftText" class="text-box">
         <p>
-            You will do this by using one of the artworks in the <em>Wise to Power</em> exhibition at the Smart Museum as a sort of
-            bridge between the texts. How does the artwork illustrate the critique or engagement that either
-            Wollstonecraft, Walker or Burke offer with regard to the ideas found in one of the other works? How does the piece
-            reflect what Wollstonecraft, Walker or Burke might be said to critique, modify, or comment on in one of the other
-            political theories we’ve read?
-        </p>
+            This is the text that appears when you click on the <strong>left half</stro
 
-        <p>
-            This is <strong>not</strong> about just finding agreement or disagreement between the art and/or the theories – it’s about
-            putting the three into conversation with each other. Does Wollstonecraft, Walker or Burke offer some commentary on
-            or engagement with another theorist that can be interpreted, reflected or expressed through the art piece?
-        </p>
-
-        <p>
-            You are welcome to use whatever media are available to you via the webpage (text, image, video, music, etc.).
-        </p>
-    </section>
-
-    <section>
-        <h2>Interpreting Art</h2>
-
-        <p>
-            You will need to include an analysis of both the <strong>visual evidence</strong> and the <strong>textual evidence</strong>, and strong
-            projects will use visual evidence to analyze and interpret the artwork. This will require looking closely at the piece.
-        </p>
-
-        <h3>Advice for describing and analyzing the visual evidence</h3>
-        <ul>
-            <li>Do not rely solely on the object label in the museum for your interpretation – think about an interpretation that is (a) rooted in the visual evidence presented and (b) related to a central theme the authors address.</li>
-            <li>Each of the visual elements in a work is important. Consider the figures, the setting, the artist’s use of media, composition, brushwork, narrative, and elements such as color, light, line, scale, depth, texture, space, facial expressions, etc. Visual analysis employs description of what you see to make interpretive assertions about a work of visual art.</li>
-            <li>Think about how the artist has depicted the subject of the theme(s) you notice in the work and wish to analyze in your project.</li>
-            <li>Try to account for as many meaningful visual details as you can.</li>
-        </ul>
-
-        <p>
-            <strong>NB:</strong> You will need to return to the museum to examine your piece in more detail; do not rely solely on your
-            observations during class time, and do not rely on photographs.
-        </p>
-    </section>
-
-    <section>
-        <h2>Canvas Webpage Instructions</h2>
-
-        <p>
-            The instructor will create a web page for each student on the Canvas site for you to complete your project. The assignment
-            will be specified as “no submission,” because you are expected to use the page that is created for you.
-        </p>
-
-        <p>
-            You should:
-        </p>
-        <ul>
-            <li>Include an image of your chosen artwork.</li>
-            <li>Demonstrate the reason for your choice.</li>
-            <li>Illustrate how the piece conveys the relationship between the texts.</li>
-        </ul>
-
-        <p>
-            There is no set “length” for this assignment, but your treatment should be comparable in depth to that of a paper, and you
-            must provide enough information about the various elements for your “reader” to have a full understanding of your project.
-        </p>
-    </section>
-
-    <section class="footer-note">
-        <p>
-            Use this page as a template: replace this instructional text with your own analysis of the chosen texts and artwork,
-            following the guidelines above and your course policies.
-        </p>
-    </section>
-</main>
-</body>
-</html>
