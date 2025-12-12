@@ -26,6 +26,7 @@
             z-index: 0;
         }
 
+        /* TOP INTRO BOX */
         .intro-box {
             max-width: 900px;
             margin: 20px auto;
@@ -33,18 +34,27 @@
             border-left: 6px solid #4a4a4a;
             padding: 18px 22px;
             box-shadow: 0 2px 6px rgba(0,0,0,0.25);
-            position: relative;
-            z-index: 1;
         }
 
+        /* MAIN LAYOUT */
+        .page-container {
+            position: relative;
+            z-index: 1;
+            max-width: 1300px;
+            margin: 40px auto;
+            padding: 10px;
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+        }
+
+        /* IMAGE */
         .image-container {
             width: 550px;
-            margin: 20px auto;
             position: relative;
             border: 1px solid #444;
             box-shadow: 0 4px 12px rgba(0,0,0,0.4);
             filter: grayscale(20%);
-            z-index: 1;
         }
 
         img {
@@ -59,22 +69,11 @@
             height: 100%;
             cursor: pointer;
         }
-
         .left-half { left: 0; }
         .right-half { right: 0; }
 
-        .page-container {
-            position: relative;
-            z-index: 1;
-            max-width: 1200px;
-            margin: 30px auto;
-            padding: 10px;
-            display: flex;
-            justify-content: center;
-            gap: 20px;
-        }
-
-        .side-text {
+        /* SIDE TEXT + RIGHT INTRO BOX */
+        .side-text, .right-intro-box {
             width: 300px;
             background: rgba(255,255,255,0.6);
             border-left: 6px solid #4a4a4a;
@@ -82,9 +81,11 @@
             font-size: 1.05rem;
             backdrop-filter: blur(3px);
             box-shadow: 0 2px 6px rgba(0,0,0,0.25);
-            display: none;
+            height: fit-content;
             animation: fadeIn 0.7s ease forwards;
         }
+
+        .side-text { display: none; }
 
         @keyframes fadeIn {
             from { opacity: 0; transform: translateY(10px); }
@@ -95,40 +96,41 @@
 
 <body>
 
-<!-- INTRO TEXT BOX AT THE TOP -->
+<!-- INTRO BOX ABOVE THE IMAGE -->
 <div id="introTop" class="intro-box">
     <p>
-        The years following the war left the world suspended in a quiet, heavy stillness. 
-        This introduction frames the artwork through that muted emotional atmosphere.
+        After the war, the world entered a muted period of introspection — 
+        a landscape marked by loss, resilience, and the fragile beginnings of renewal.
+        This introduction frames our engagement with the artwork through that solemn emotional horizon.
     </p>
 </div>
 
-<!-- IMAGE -->
-<div class="image-container">
-    <img src="artwork.jpg" alt="Artwork">
-    <div class="left-half" onclick="showLeft()"></div>
-    <div class="right-half" onclick="showRight()"></div>
-</div>
-
-<!-- INTRO TEXT BOX AT THE BOTTOM -->
-<div id="introBottom" class="intro-box">
-    <p>
-        This second introduction expands the context, connecting the artwork to the 
-        philosophical tensions that continue to echo through the postwar landscape.
-    </p>
-</div>
-
-<!-- LEFT PANEL — IMAGE — RIGHT PANEL -->
+<!-- MAIN 3-COLUMN LAYOUT -->
 <div class="page-container">
 
+    <!-- LEFT SIDE TEXT (hidden until left click) -->
     <div id="leftText" class="side-text">
         <p>
             This is the left-side interpretation. Add multiple paragraphs as needed.
         </p>
     </div>
 
-    <div style="width: 550px;"></div>
+    <!-- IMAGE -->
+    <div class="image-container">
+        <img src="artwork.jpg" alt="Artwork">
+        <div class="left-half" onclick="showLeft()"></div>
+        <div class="right-half" onclick="showRight()"></div>
+    </div>
 
+    <!-- RIGHT INTRO BOX (visible until first click) -->
+    <div id="introRight" class="right-intro-box">
+        <p>
+            This secondary introduction connects the composition of the artwork to the 
+            philosophical tensions still echoing through the postwar world.
+        </p>
+    </div>
+
+    <!-- RIGHT SIDE TEXT (hidden until right click) -->
     <div id="rightText" class="side-text">
         <p>
             This is the right-side interpretation. Add multiple paragraphs as needed.
@@ -140,7 +142,7 @@
 <script>
     function hideIntros() {
         document.getElementById("introTop").style.display = "none";
-        document.getElementById("introBottom").style.display = "none";
+        document.getElementById("introRight").style.display = "none";
     }
 
     function showLeft() {
@@ -160,4 +162,5 @@
 
 </body>
 </html>
+
 
