@@ -37,12 +37,14 @@
             gap: 20px;
         }
 
+        /* IMAGE */
         .image-container {
             position: relative;
             width: 550px;
             border: 1px solid #444;
             box-shadow: 0 4px 12px rgba(0,0,0,0.4);
             filter: grayscale(20%);
+            margin-bottom: 20px;
         }
 
         img {
@@ -50,7 +52,8 @@
             display: block;
         }
 
-        .left-half, .right-half {
+        .left-half,
+        .right-half {
             position: absolute;
             top: 0;
             width: 50%;
@@ -61,6 +64,7 @@
         .left-half { left: 0; }
         .right-half { right: 0; }
 
+        /* LEFT + RIGHT TEXT BESIDE IMAGE */
         .side-text {
             width: 300px;
             background: rgba(255,255,255,0.6);
@@ -74,9 +78,10 @@
             height: fit-content;
         }
 
+        /* INTRO TEXT BOXES */
         .intro-box {
             max-width: 900px;
-            margin: 20px auto;
+            margin: 15px auto;
             background: rgba(255,255,255,0.7);
             border-left: 6px solid #4a4a4a;
             padding: 18px 22px;
@@ -92,42 +97,50 @@
 
 <body>
 
-<!-- INTRO TEXT (disappears after clicking left or right) -->
-<div id="introText" class="intro-box">
-    <p>
-    This picture, titled Now (Berlin Wall) was taken in 1996. After World War II, Berlin was devided into East and West, 
-    the former governed by America while the latter by the Societ Union. Imagine living in East Berlin at the peak of the Cold War. On the East, covered in an atmosphere of grayness due to 
-    restriction of freedom of speak and slow economic growth, you can only get a glimpse of the West looking across the Berlin wall. On the East, everything you lack can be fulfilled. However, escaping is almost impossible. The Berlin wall was erected by the Soviet Union to prevent escaping from the East to the West, and any attempt to do so almost immediate results in death or imprisonment. 
-    </p>
-    
-    <p>   
-    What would you do now? 
-    </p>
-</div>
-
-<!-- MAIN FLEX LAYOUT -->
-<div class="page-container">
-
-    <!-- LEFT TEXT -->
-    <div id="leftText" class="side-text">
-        <p>
-            This is where your paragraph for the <strong>left half</strong> of the image goes.
-            Replace this text with your interpretation.
-        </p>
-    </div>
-
-    <!-- IMAGE -->
-    <div class="image-container">
+<!-- IMAGE SECTION WITH TWO INTRO BOXES BELOW -->
+<div style="text-align:center;">
+    <div class="image-container" style="margin-left:auto; margin-right:auto;">
         <img src="artwork.jpg" alt="Artwork">
         <div class="left-half" onclick="showLeft()"></div>
         <div class="right-half" onclick="showRight()"></div>
     </div>
 
-    <!-- RIGHT TEXT -->
+    <!-- INTRO BOX #1 -->
+    <div id="intro1" class="intro-box">
+        <p>
+            In the aftermath of the war, a muted emotional landscape stretches across the world. 
+            This first introduction frames the artwork in the quiet sorrow and resilience that defined the postwar era.
+        </p>
+    </div>
+
+    <!-- INTRO BOX #2 -->
+    <div id="intro2" class="intro-box">
+        <p>
+            The second introduction expands this reflection, connecting the viewer’s gaze to the political and philosophical 
+            tensions that survived the conflict and continued to shape how people understood authority, vulnerability, 
+            and the rebuilding of society.
+        </p>
+    </div>
+</div>
+
+
+<!-- MAIN LAYOUT (LEFT PANEL — IMAGE — RIGHT PANEL) -->
+<div class="page-container">
+
+    <!-- LEFT SIDE TEXT -->
+    <div id="leftText" class="side-text">
+        <p>
+            This is the left-side interpretation. Add multiple paragraphs if you wish.
+        </p>
+    </div>
+
+    <!-- IMAGE IS SHOWN ABOVE, so here is an empty space to keep layout aligned -->
+    <div style="width: 550px;"></div>
+
+    <!-- RIGHT SIDE TEXT -->
     <div id="rightText" class="side-text">
         <p>
-            This is where your paragraph for the <strong>right half</strong> of the image goes.
-            Replace this text with your interpretation.
+            This is the right-side interpretation. Add multiple paragraphs if you wish.
         </p>
     </div>
 
@@ -135,23 +148,27 @@
 
 <script>
     function hideIntro() {
-        document.getElementById("introText").style.display = "none";
+        document.getElementById("intro1").style.display = "none";
+        document.getElementById("intro2").style.display = "none";
     }
 
     function showLeft() {
         hideIntro();
         document.getElementById("leftText").style.display = "block";
         document.getElementById("rightText").style.display = "none";
+        window.scrollTo({ top: 0, behavior: "smooth" });
     }
 
     function showRight() {
         hideIntro();
         document.getElementById("rightText").style.display = "block";
         document.getElementById("leftText").style.display = "none";
+        window.scrollTo({ top: 0, behavior: "smooth" });
     }
 </script>
 
 </body>
 </html>
+
 
 
