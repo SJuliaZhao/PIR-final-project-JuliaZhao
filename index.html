@@ -37,7 +37,6 @@
             gap: 20px;
         }
 
-        /* IMAGE */
         .image-container {
             position: relative;
             width: 550px;
@@ -51,7 +50,6 @@
             display: block;
         }
 
-        /* CLICKABLE HALVES */
         .left-half, .right-half {
             position: absolute;
             top: 0;
@@ -63,7 +61,6 @@
         .left-half { left: 0; }
         .right-half { right: 0; }
 
-        /* TEXT BOXES TO LEFT AND RIGHT OF IMAGE */
         .side-text {
             width: 300px;
             background: rgba(255,255,255,0.6);
@@ -95,8 +92,8 @@
 
 <body>
 
-<!-- INTRO TEXT ALWAYS VISIBLE -->
-<div class="intro-box">
+<!-- INTRO TEXT (disappears after clicking left or right) -->
+<div id="introText" class="intro-box">
     <p>
         A quiet stillness settles over the world in the years after the war — 
         a muted landscape shaped by reflection, loss, and the fragile hope of rebuilding.
@@ -105,10 +102,10 @@
     </p>
 </div>
 
-<!-- MAIN 3-COLUMN LAYOUT -->
+<!-- MAIN FLEX LAYOUT -->
 <div class="page-container">
 
-    <!-- LEFT TEXT PANEL -->
+    <!-- LEFT TEXT -->
     <div id="leftText" class="side-text">
         <p>
             This is where your paragraph for the <strong>left half</strong> of the image goes.
@@ -116,14 +113,14 @@
         </p>
     </div>
 
-    <!-- IMAGE IN CENTER -->
+    <!-- IMAGE -->
     <div class="image-container">
         <img src="artwork.jpg" alt="Artwork">
         <div class="left-half" onclick="showLeft()"></div>
         <div class="right-half" onclick="showRight()"></div>
     </div>
 
-    <!-- RIGHT TEXT PANEL -->
+    <!-- RIGHT TEXT -->
     <div id="rightText" class="side-text">
         <p>
             This is where your paragraph for the <strong>right half</strong> of the image goes.
@@ -134,12 +131,18 @@
 </div>
 
 <script>
+    function hideIntro() {
+        document.getElementById("introText").style.display = "none";
+    }
+
     function showLeft() {
+        hideIntro();
         document.getElementById("leftText").style.display = "block";
         document.getElementById("rightText").style.display = "none";
     }
 
     function showRight() {
+        hideIntro();
         document.getElementById("rightText").style.display = "block";
         document.getElementById("leftText").style.display = "none";
     }
@@ -147,4 +150,5 @@
 
 </body>
 </html>
+
 
